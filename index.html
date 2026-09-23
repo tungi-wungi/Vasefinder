@@ -14,6 +14,27 @@
 
 <body>
     <div class="background"></div>
+    <div class="main-grid" id="mainGrid"></div>
+    <a class="enter-link" href="index1.html">
+    <h1>Enter</h1>
+    </a>
+
+    <script>
+        const mainGrid = document.getElementById("mainGrid");
+        const columns = 16;
+        const rows = 9;
+        const totalTiles = columns * rows;
+
+        for (let i = 0; i < totalTiles; i++) {
+            const tile = document.createElement("div");
+            tile.classList.add("main-tile");
+
+            const randomSpeed = Math.random() * 6 + 2;
+            tile.style.animationDuration = randomSpeed + "s";
+
+            mainGrid.appendChild(tile);
+        }
+    </script>
 </body>
 
 </html>

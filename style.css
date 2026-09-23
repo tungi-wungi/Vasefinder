@@ -1,12 +1,66 @@
+html,
 body {
   margin: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .background {
   position: fixed;
   inset: 0;
-  background-image: url("assets/background2.png");
+  background-image: url("assets/background3.png");
   background-size: cover;
   background-position: center;
   z-index: 0;
+}
+
+.main-grid {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+}
+
+.main-tile {
+  background-image: url("assets/vaseface.png");
+  background-size: 160%;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation-name: spin;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.enter-link {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+  color: beige;
+  text-decoration: none;
+}
+
+.enter-link h1 {
+  margin: 0;
+  font-family: "Petit Formal Script", cursive;
+  font-size: 320px;
+  font-weight: 600;
+  cursor: pointer;
 }
