@@ -3,97 +3,17 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="style.css">
-    <title>Gallery</title>
-    <!-- helllllllllllloooooooooooooooooo -->
+    <link rel="stylesheet" href="stylemain.css">
+    <title>Main Menu</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&family=Petit+Formal+Script&display=swap"rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&family=Petit+Formal+Script&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-
-
-
-
-
-    <!-- FLEXBOX -->
-
-    <!-- <div class="gallery">
-            <img class="image" src="assets/1.png">
-            <img class="image" src="assets/2.png">
-            <img class="image" src="assets/3.png">
-            <img class="image" src="assets/4.png">
-            <img class="image" src="assets/5.png">
-        </div> -->
-
-    <!-- the divs -->
     <div class="background"></div>
-    <div class="building-grid" id="buildingGrid"></div>
-    <div class="winner" id="winner">
-        <img src="assets/vaseglow.png" alt="Glowing vase">
-        <h1 class="font1">"Ah, you've found me!"</h1>
-        <p>next></p>
-    </div>
-
-
-    <script>
-        const grid = document.getElementById("buildingGrid");
-        const columns = 13;
-        const rows = 8;
-        const totalTiles = columns * rows;
-        const tvOnSound = new Audio("assets/tvon.wav");
-        const tvOffSound = new Audio("assets/tvoff.wav");
-        const winner = document.getElementById("winner");
-        let specialClickCount = 0;
-        // CREATE TILES
-        for (let i = 0; i < totalTiles; i++) {
-            const tile = document.createElement("div");
-            tile.classList.add("tile");
-
-            if (i === 74) {
-                tile.classList.add("special");
-            }
-            // TOGGLE TILES
-            tile.addEventListener("click", function () {
-                if (tile.classList.contains("special")) {
-                    specialClickCount++;
-
-                    if (specialClickCount === 1) {
-                        tile.classList.add("alternate");
-
-                        tvOnSound.currentTime = 0;
-                        tvOnSound.play();
-                    }
-
-                    if (specialClickCount === 2) {
-                        winner.classList.add("active");
-                    }
-
-                    return;
-                }
-
-                tile.classList.toggle("alternate");
-
-                if (tile.classList.contains("alternate")) {
-                    tvOnSound.currentTime = 0;
-                    tvOnSound.play();
-                } else {
-                    tvOffSound.currentTime = 0;
-                    tvOffSound.play();
-                }
-            });
-            grid.appendChild(tile);
-        }
-        winner.addEventListener("click", function () {
-            window.location.href = "index2.html";
-        });
-    </script>
-
-
-
 </body>
-
-
 
 </html>
