@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  background-image: url("assets/hide.png");
+  background-size: cover;
+  background-position: center;
+
+  z-index: 0;
+}
+
+
+
+.building-grid {
+  display: grid;
+  position: relative;
+  z-index: 1;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  width: calc(2140 / 2560 * 100vw);
+  height: calc(1080 / 1440 * 100vh);
+}
+
+.tile {
+  background-image: url("assets/real wall.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.tile.shifted {
+  transform: translate(0px, 40px) skewY(15deg);
+  z-index: 1;
+}
+
+.foreground-image {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.foreground-image img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: fill;
+  display: block;
+}
+
+.building-grid.leaving {
+  animation: gridLeave 1.2s ease-in forwards;
+  pointer-events: none;
+}
+
+@keyframes gridLeave {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+
+.winner {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  pointer-events: auto;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+}
+
+.winner.active {
+  display: flex;
+}
+
+.winner img {
+  height: 100vh;
+  width: auto;
+  object-fit: contain;
+}
+
+.winner h1 {
+  color: beige;
+  font-size: 150px;
+  margin: 0 0 16px;
+}
+
+.winner p {
+  color: beige;
+  font-size: 24px;
+  margin: 0;
+}
+
+.font1 {
+  font-family: "Petit Formal Script", cursive;
+  font-weight: 200;
+  font-style: normal;
+}

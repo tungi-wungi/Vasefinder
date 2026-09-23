@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  background-image: url("assets/background2.png");
+  background-size: cover;
+  background-position: center;
+  animation: hueShift 1s linear infinite;
+  z-index: 0;
+}
+
+@keyframes hueShift {
+  from {
+    filter: hue-rotate(0deg);
+  }
+
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.building-grid {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(13, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.tile {
+  background-image: url("assets/tvoff.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.tile.alternate {
+  background-image: url("assets/tvon.png");
+}
+
+.tile.tile.special.alternate {
+  background-image: url("assets/tvx.png");
+}
+
+.winner {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  pointer-events: auto;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+}
+
+.winner.active {
+  display: flex;
+}
+
+.winner img {
+  height: 100vh;
+  width: auto;
+  object-fit: contain;
+}
+
+.winner h1 {
+  color: beige;
+  font-size: 200px;
+  margin: 0 0 16px;
+}
+
+.winner p {
+  color: beige;
+  font-size: 24px;
+  margin: 0;
+}
+
+.font1 {
+  font-family: "Petit Formal Script", cursive;
+  font-weight: 200;
+  font-style: normal;
+}

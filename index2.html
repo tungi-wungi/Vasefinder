@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="style2.css">
+    <title>Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&family=Petit+Formal+Script&display=swap"
+        rel="stylesheet">
+    <!-- helllllllllllloooooooooooooooooo -->
+</head>
+
+<body>
+
+
+
+
+
+    <!-- FLEXBOX -->
+
+    <!-- <div class="gallery">
+            <img class="image" src="assets/1.png">
+            <img class="image" src="assets/2.png">
+            <img class="image" src="assets/3.png">
+            <img class="image" src="assets/4.png">
+            <img class="image" src="assets/5.png">
+        </div> -->
+
+    <!-- GRID!s -->
+    <div class="winner" id="winner">
+        <img src="assets/vaseglow.png" alt="Glowing vase">
+        <h1 class="font1">"You've found me... again,<br> I guess that's it"</h1>
+        <p>next&gt;</p>
+    </div>
+    <div class="background"></div>
+    <div class="foreground-image">
+        <img src="assets/window.png" alt="">
+    </div>
+    <div class="building-grid" id="buildingGrid"></div>
+
+
+    <script>
+        const winner = document.getElementById("winner");
+        let canShowWinner = false;
+        const grid = document.getElementById("buildingGrid");
+        let isMouseDown = false;
+        const columns = 8;
+        const rows = 12;
+        const totalTiles = columns * rows;
+        const specialIndex = (4 - 1) * columns + (7 - 1);
+        let gridIsLeaving = false;
+
+        for (let i = 0; i < totalTiles; i++) {
+            const tile = document.createElement("div");
+            tile.classList.add("tile");
+
+            tile.addEventListener("mousedown", function () {
+                if (gridIsLeaving) {
+                    return;
+                }
+
+                isMouseDown = true;
+                tile.classList.add("shifted");
+
+                if (i === specialIndex) {
+                    gridIsLeaving = true;
+                    grid.classList.add("leaving");
+                }
+            });
+
+            tile.addEventListener("mouseenter", function () {
+                if (isMouseDown) {
+                    tile.classList.add("shifted");
+                }
+            });
+
+            tile.addEventListener("mouseleave", function () {
+                tile.classList.remove("shifted");
+            });
+
+            tile.addEventListener("mouseup", function () {
+                isMouseDown = false;
+                tile.classList.remove("shifted");
+            });
+
+            grid.appendChild(tile);
+        }
+        grid.addEventListener("animationend", function () {
+            grid.style.display = "none";
+            canShowWinner = true;
+        });
+        document.addEventListener("click", function () {
+            if (canShowWinner) {
+                winner.classList.add("active");
+            }
+        });
+        document.addEventListener("mouseup", function () {
+            isMouseDown = false;
+
+
+            const allTiles = document.querySelectorAll(".tile");
+            allTiles.forEach(function (tile) {
+                tile.classList.remove("shifted");
+            });
+        });
+    </script>
+
+
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  background-image: url("assets/background2.png");
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
